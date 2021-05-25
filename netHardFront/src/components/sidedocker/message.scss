@@ -1,0 +1,222 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+$x-align: 20;
+.message-list-holder {
+    font-size: 14px;
+    margin-top: 24px;
+    width: 360px;
+    .title {
+        padding: 0 5px;
+        margin: 0 $x-align * 1px;
+        .header {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            @include PutTheme(
+                "theme-dark",
+                (
+                    "color": $white-dim-2,
+                )
+            );
+        }
+        .all-readed {
+            color: $light-blue;
+            float: right;
+            @include PutTheme(
+                "theme-dark",
+                (
+                    "color": $blue-dim,
+                )
+            );
+        }
+        .all-readed-enable {
+            color: $blue;
+            font-weight: 600;
+        }
+    }
+    //私信
+    .message-toggle-list {
+        margin: 0 $x-align * 1px;
+    }
+    .sidedocker-message-list {
+        @extend %ul-default;
+        width: 100%;
+        .message {
+            align-items: center;
+            border-bottom: 1px solid $theme-light-dim;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: flex;
+            height: 55px;
+            padding: 0 $x-align * 1px;
+            position: relative;
+            width: 100%;
+            .new-message {
+                left: 5px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                color: $theme-red-dim;
+                font-size: 26px;
+            }
+            .avatar-holder {
+                margin-right: 6px;
+                .message-avatar {
+                    $avatar-size: 36;
+                    height: $avatar-size * 1px;
+                    width: $avatar-size * 1px;
+                }
+            }
+            .message-text {
+                align-self: flex-start;
+                flex-grow: 1;
+                margin-top: 10px;
+                min-width: 0;
+                .message-date {
+                    color: $gray-alt;
+                    float: right;
+                }
+                .message-user {
+                    color: $blue;
+                    font-size: 14px;
+                }
+                .message-msg {
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    @include PutTheme(
+                        "theme-dark",
+                        (
+                            "color": $white-dim-2,
+                        )
+                    );
+                }
+            }
+            @include PutTheme(
+                "theme-dark",
+                (
+                    border-bottom: 1px solid $theme-dark-gray,
+                )
+            );
+            &:hover {
+                background-color: $theme-light-dim;
+                @include PutTheme(
+                    "theme-dark",
+                    (
+                        background-color: $theme-dark-gray,
+                    )
+                );
+            }
+        }
+    }
+    //评论
+    .sidedocker-comment-at-list {
+        padding: 0 18px 60px 18px;
+        .comment-list-item {
+            border-bottom: 2px solid $theme-light-dim;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            .user-avatar {
+                height: 34px;
+                margin-right: 6px;
+                width: 34px;
+            }
+            .comment-list-info {
+                width: 100%;
+                display: flex;
+                .comment-detail {
+                    flex-grow: 1;
+                    .comment-username {
+                        cursor: pointer;
+                        color: $blue;
+                        font-weight: 600;
+                        margin-bottom: 6px;
+                    }
+                    .comment-date {
+                        color: $gray-alt;
+                        float: right;
+                    }
+                    .comment-message {
+                        @include PutTheme(
+                            "theme-dark",
+                            (
+                                color: $white,
+                            )
+                        );
+                        .reply-user {
+                            display: inline-block;
+                        }
+                    }
+                    .comment-reply-to {
+                        align-items: center;
+                        background-color: $theme-light-dim;
+                        border-radius: $corner-radis * 1px;
+                        cursor: pointer;
+                        display: flex;
+                        line-height: 30px;
+                        margin-top: 4px;
+                        text-indent: 10px;
+                        .cover,
+                        .icon {
+                            margin: 10px;
+                            height: 40px;
+                            width: 40px;
+                            color: $theme-red;
+                        }
+                        .songlist-name {
+                            .songlist-icon {
+                                border: 1px solid $theme-red;
+                                font-size: 8px;
+                                color: $theme-red;
+                                border-radius: 4px;
+                                margin-right: 6px;
+                            }
+                            .songlist-by {
+                                color: $gray-alt-2;
+                                font-size: 14px;
+                                line-height: 14px;
+                            }
+                        }
+                        @include PutTheme(
+                            "theme-dark",
+                            (
+                                color: $white,
+                                background-color: $theme-dark-gray-alt,
+                            )
+                        );
+                    }
+                    .reply {
+                        color: $gray-alt;
+                        float: right;
+                        margin: 16px 0;
+                        &:hover {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+        .sidebar-comment-input-box {
+            margin-bottom: 16px;
+        }
+        .load-more {
+            margin: 10px auto;
+            cursor: pointer;
+            text-align: center;
+            width: 120px;
+            border-radius: 15px;
+            background-color: $theme-light-dim;
+        }
+    }
+    .no-message {
+        color: $gray-alt-2;
+        font-size: 14px;
+        margin-top: 80px;
+        text-align: center;
+    }
+    .sidedocker-message-loading {
+        margin-top: 120px;
+    }
+}

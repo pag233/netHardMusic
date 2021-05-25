@@ -1,0 +1,188 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+.sort-icon {
+  position: absolute;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  .sort-icon-holder {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    .up,
+    .down {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .up {
+      top: -8px;
+      transform: rotateZ(180deg);
+    }
+    .down {
+      bottom: -4px;
+    }
+    .icon {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      line-height: 50%;
+    }
+  }
+}
+.tracks-container {
+  @extend %ul-default;
+  box-sizing: border-box;
+  .header-line,
+  .list-line {
+    display: flex;
+  }
+  //播放列表标题选项卡
+  .header-line {
+    .title,
+    .artist,
+    .album,
+    .duration {
+      &:hover {
+        @include PutTheme(
+          "theme-red",
+          (
+            "background-color": $theme-light-dim,
+          )
+        );
+        @include PutTheme(
+          "theme-dark",
+          (
+            "background-color": $theme-dark-gray,
+          )
+        );
+      }
+    }
+  }
+  //播放列表
+  .list-line-holder {
+    margin: 0;
+    padding: 0;
+    .list-line {
+      .title {
+        @include PutTheme(
+          "theme-red",
+          (
+            "color": $theme-dark-alt3,
+          )
+        );
+        @include PutTheme(
+          "theme-dark",
+          (
+            "color": $white,
+          )
+        );
+      }
+    }
+  }
+  .header-item {
+    position: relative;
+  }
+  .header-item,
+  .list-item {
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    @extend %text-ellipsis;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $gray-alt-2,
+      )
+    );
+  }
+  .icon-section {
+    width: 114px;
+    flex-shrink: 0;
+    color: $gray-alt-2;
+    .playing,
+    .rank {
+      display: inline-block;
+      width: 36px;
+      text-align: right;
+      margin-right: 18px;
+    }
+    .download,
+    .fav,
+    .faved {
+      vertical-align: middle;
+    }
+    .fav,
+    .faved {
+      margin-right: 8px;
+    }
+    .faved {
+      color: $theme-red;
+    }
+  }
+  .title {
+    width: 730px;
+  }
+  .artist {
+    width: 210px;
+  }
+  .album {
+    width: 506px;
+  }
+  .duration {
+    width: 142px;
+    flex-grow: 1;
+    color: $gray-alt;
+  }
+  .playing {
+    color: $theme-red !important;
+    .icon {
+      color: $theme-red;
+    }
+  }
+  .cancle-fav-popup {
+    width: 470px;
+    height: 190px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .cancle-fav-close {
+      color: $gray;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      .icon {
+        height: 24px;
+        width: 24px;
+      }
+    }
+    .warning-text {
+      margin-top: 90px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .cancel-fav-confirm {
+      display: block;
+      margin: 40px auto;
+      height: 30px;
+      width: 64px;
+    }
+  }
+}
+.trackline-drag-box {
+  background-color: $white;
+  border-radius: 4px;
+  border: 1px solid $gray-alt-2;
+  font-size: 14px;
+  height: 14px;
+  line-height: 14px;
+  max-width: 180px;
+  padding: 4px;
+  position: fixed;
+  @extend %text-ellipsis;
+}
+.going-back {
+  transition: left, top;
+  transition-duration: 0.5s;
+}

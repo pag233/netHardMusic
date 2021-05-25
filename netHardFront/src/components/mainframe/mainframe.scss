@@ -1,0 +1,172 @@
+@import "../scss/varaibles";
+@import "../scss/common.scss";
+
+.main-frame {
+  //main-frame自身包括header高度需要减去footer高度。
+  height: calc(100% - #{$footer-height} * 1px);
+  //缩放时改变其大小。
+  $min-width: 800;
+  min-width: $min-width * 1px;
+  //其值必须等于min-width，否则拖动sidebar拖动区域将产生鼠标漂移bug
+  flex-basis: $min-width * 1px;
+  //自动填充剩余空间
+  flex-grow: 1;
+  .main-header {
+    @include ThemeChangeTransition();
+    ///默认ul,li样式。
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+    }
+    a {
+      color: inherit;
+    }
+
+    ///圆角
+    border-top-right-radius: $corner-radis * 1px;
+    height: $header-height * 1px;
+    width: 100%;
+
+    ///header导航样式
+    .main-header-nav {
+      display: inline-block;
+      font-weight: 700;
+
+      .main-header-nav-link {
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: $top-offset-from-viewport * 1px;
+        margin-left: 30px;
+      }
+    }
+
+    ///header搜索条以及右侧选项图标样式。
+    .main-header-search-and-options {
+      align-items: center;
+      display: flex;
+      float: right;
+      margin-top: 18px;
+      //最后一个li的右侧margin
+      &:last-child {
+        margin-right: 14px;
+      }
+      .main-header-search {
+        .header-search-bar {
+          @include PutTheme(
+            "theme-red",
+            (
+              "background-color": $theme-red-gray,
+              "color": $theme-red-gray-light,
+            )
+          );
+          &::placeholder {
+            @include PutTheme(
+              "theme-red",
+              (
+                "color": $theme-red-gray-light,
+              )
+            );
+          }
+        }
+      }
+      .main-header-option {
+        font-size: 16px;
+        height: 24px;
+        margin-left: 16px;
+        text-align: center;
+        width: 24px;
+        &:hover {
+          border-radius: 50%;
+        }
+        .icon {
+          vertical-align: middle;
+          margin-bottom: 4px;
+        }
+        .theme-option-popup {
+          top: 50px;
+          right: 0;
+          width: 185px;
+          height: 80px;
+          .theme-options-holder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .theme-option {
+              font-size: 12px;
+              .option-icon {
+                width: 22px;
+                height: 22px;
+                line-height: 22px;
+                margin-bottom: 8px;
+                border-radius: 50%;
+                .check {
+                  display: inline-block;
+                  font-weight: 400;
+                  margin: 0 auto;
+                  width: 4px;
+                  height: 8px;
+                  transform: rotate(45deg);
+                  border-style: solid;
+                  border-color: $white;
+                  border-width: 0 2px 2px 0;
+                }
+              }
+
+              .option-title {
+                color: rgb(178, 178, 178);
+                font-weight: 600;
+              }
+
+              .theme-red {
+                background-color: $theme-red;
+              }
+
+              .theme-light {
+                background-color: $theme-light-dim;
+              }
+
+              .theme-dark {
+                background-color: $theme-dark;
+              }
+            }
+          }
+        }
+      }
+      .message-option {
+        position: relative;
+        .new-message {
+          @extend %new-message-counter;
+          background-color: $white;
+          color: $theme-red;
+          right: -3px;
+          top: -6px;
+        }
+      }
+    }
+  }
+  .main-body {
+    @include ThemeChangeTransition();
+    //body高度减去footer高度
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+    height: calc(100% - #{$header-height} * 1px);
+    overflow-y: scroll;
+    padding-top: 15px;
+    scrollbar-width: none;
+    width: 100%;
+    .body-container {
+      margin: 0 auto;
+      max-width: 1040px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

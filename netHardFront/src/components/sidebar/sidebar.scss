@@ -1,0 +1,359 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+.sidebar {
+  ///用于调整sidebar宽度。
+  flex-basis: 200px;
+  //不会填充剩余宽度
+  flex-grow: 0;
+  min-width: 200px;
+  .sidebar-top {
+    @include ThemeChangeTransition();
+    border-top-left-radius: $corner-radis * 1px;
+    //设置sidebar-top高度与header一致
+    height: $header-height * 1px;
+    //siebar前进后退导航样式
+    .sidebar-nav-icon-holder {
+      height: 100%;
+      width: 200px;
+      .sidebar-nav-icon {
+        float: right;
+        height: 20px;
+        margin-top: $top-offset-from-viewport * 1px;
+        width: 56px;
+        .sidebar-nav-back {
+          float: left;
+        }
+        .sidebar-nav-forward {
+          float: right;
+        }
+        .sidebar-nav-back,
+        .sidebar-nav-forward {
+          .disabled {
+            border-color: $theme-red-gray;
+          }
+        }
+      }
+    }
+  }
+
+  ///sidebar-bottom高度应减去header以及footer的高度。
+  .sidebar-bottom {
+    @include ThemeChangeTransition();
+    font-size: 14px;
+    height: calc(100% - #{$footer-height + $header-height} * 1px);
+    width: 100%;
+    ///sidebar拖动区域
+    .sidebar-drag-area {
+      float: right;
+      height: 100%;
+      transform: translateX(4px);
+      width: $drag-area-width * 1px;
+      &:hover {
+        cursor: e-resize;
+      }
+    }
+    .sidebar-nav {
+      //头像
+      .sidebar-avatar {
+        height: 60px;
+        line-height: 60px;
+        width: 100%;
+        .avatar {
+          float: left;
+          height: 40px;
+          margin: 10px;
+          width: 40px;
+        }
+        .arrow {
+          display: inline;
+          .icon {
+            color: gray;
+            height: 2em;
+            transform: translateY(10px);
+            width: 2em;
+          }
+        }
+        .sidebar-avatar-popup {
+          top: 58px;
+          left: 134px;
+          .setting {
+            background-color: $white;
+            border-radius: $corner-radis * 1px;
+            width: 320px;
+            .section {
+              border-bottom: 2px solid $theme-light-dim-alt;
+              &:last-of-type {
+                border: none;
+              }
+            }
+            .follow {
+              .sign {
+                background-color: $white;
+                border-radius: 16px;
+                border: 2px solid $theme-light-dim-alt;
+                display: block;
+                height: 30px;
+                margin: 15px auto;
+                width: 95px;
+              }
+            }
+            .item {
+              align-items: center;
+              display: flex;
+              height: 40px;
+              line-height: 40px;
+              padding-left: 22px;
+              padding-right: 11px;
+              .icon {
+                width: 16px;
+                height: 16px;
+                line-height: 16px;
+                vertical-align: middle;
+              }
+              .title {
+                display: inline-block;
+                flex-grow: 1;
+                font-size: 16px;
+                margin-left: 12px;
+                .newInfo {
+                  background-color: $theme-red;
+                  border-radius: 50%;
+                  display: inline-block;
+                  height: 8px;
+                  margin-left: 10px;
+                  width: 8px;
+                }
+              }
+              .subInfo {
+                color: $gray;
+                margin-right: 6px;
+                text-align: right;
+              }
+              &:hover {
+                background-color: $theme-light-dim-alt;
+              }
+            }
+          }
+        }
+      }
+      .sidebar-list {
+        list-style: none;
+        margin: 0 0 30px 0;
+        padding: 0;
+        a {
+          cursor: default;
+        }
+        @include PutTheme(
+          "theme-dark",
+          (
+            "color": $white-dim-2,
+          )
+        );
+        .active {
+          @include PutTheme(
+            "theme-red",
+            (
+              "color": $theme-red,
+            )
+          );
+          @include PutTheme(
+            "theme-light",
+            (
+              "color": $theme-red,
+            )
+          );
+          @include PutTheme(
+            "theme-dark",
+            (
+              "color": $theme-red,
+            )
+          );
+        }
+        .sidebar-item {
+          align-items: center;
+          display: flex;
+          height: 36px;
+          min-width: 0;
+          padding-left: 20px;
+          .sidebar-icon {
+            .icon {
+              margin-right: 8px;
+              height: 1.5em;
+              width: 1.5em;
+              vertical-align: middle;
+            }
+          }
+          .sidebar-song-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          &:hover {
+            background-color: $theme-light-gray-alt;
+            @include PutTheme(
+              "theme-dark",
+              (
+                "background-color": $theme-dark-alt4,
+              )
+            );
+          }
+        }
+        .sidebar-list-title {
+          color: gray;
+          font-size: 12px;
+          margin-bottom: 8px;
+          padding-left: 20px;
+          position: relative;
+          .sidebar-title-header-icon {
+            .icon {
+              height: 1.5em;
+              vertical-align: middle;
+              width: 1.5em;
+            }
+          }
+          .drop {
+            .icon {
+              transform: rotateZ(-90deg);
+            }
+          }
+          .sidebar-title-rear-icon {
+            @include PutTheme(
+              "theme-red",
+              (
+                "color": "1px solid" black,
+              )
+            );
+            @include PutTheme(
+              "theme-dark",
+              (
+                "color": "1px solid" $white-dim-2,
+              )
+            );
+            display: inline-block;
+            font-size: 2em;
+            position: absolute;
+            right: 0;
+            top: -8px;
+          }
+        }
+        .title-with-icon {
+          padding-left: 0;
+        }
+      }
+      .login-popup {
+        //*hack*不能使用transform居中
+        //当transfrom为非空时，将创建新的层叠上下文，其子代的position为fixed的节点将以该节点作为容器而不是窗口。
+        //这将导致基于top,left等属性定位的元素位置不正确。
+        bottom: 0;
+        height: 530px;
+        left: 0;
+        margin: auto;
+        right: 0;
+        top: 0;
+        width: 350px;
+        .login {
+          .close {
+            color: $gray;
+            margin-left: 14px;
+            margin-top: 14px;
+          }
+          .background-icon {
+            height: 114px;
+            margin: 40px auto;
+            width: 168px;
+            .icon {
+              color: $pink;
+              height: 114px;
+              width: 168px;
+            }
+          }
+          .input-wrapper {
+            margin: 0 auto;
+            width: $login-popup-input-width * 1px;
+            .input-holder {
+              position: relative;
+              &:first-of-type {
+                .login-input {
+                  border-top: 2px solid $gray;
+                }
+              }
+              .icon {
+                color: $gray;
+                left: 5px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              .login-input {
+                border-radius: 4px;
+                border: 2px solid $gray;
+                border-top: none;
+                box-sizing: border-box;
+                color: $gray;
+                display: inline-block;
+                height: $login-popup-input-height * 1px;
+                text-indent: 20px;
+                width: $login-popup-input-width * 1px;
+                &:focus {
+                  outline: none;
+                }
+                &::placeholder {
+                  color: $gray;
+                }
+              }
+              input[type="submit"]:disabled {
+                background-color: $gray !important;
+              }
+              .login-submit {
+                border-radius: 4px;
+                border: none;
+                display: block;
+                background-color: $theme-red;
+                color: $white;
+                height: $login-popup-input-height * 1px;
+                margin: 0 auto;
+                width: $login-popup-input-width * 1px;
+                &:focus {
+                  outline: none;
+                }
+              }
+              .combo-box-popup {
+                box-shadow: none;
+                .combo-box {
+                  list-style: none;
+                  margin: 0;
+                  padding: 0;
+                  .option {
+                    border-radius: 4px;
+                    text-indent: 22px;
+                    border: 1px solid $gray;
+                    height: $login-popup-input-height * 1px;
+                    line-height: $login-popup-input-height * 1px;
+                    width: $login-popup-input-width * 1px;
+                  }
+                  .select {
+                    background-color: $gray;
+                  }
+                }
+              }
+            }
+            .err-msg {
+              bottom: 0;
+              color: $theme-red;
+              margin-bottom: 40px;
+              text-align: center;
+            }
+          }
+          .sign-up {
+            bottom: 5px;
+            color: $gray;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+}

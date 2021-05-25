@@ -1,0 +1,81 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.toggle-list {
+    border-radius: 15px;
+    border: 1px solid $gray-alt;
+    @include PutTheme(
+        "theme-dark",
+        (
+            border: 1px solid $theme-light-gray,
+        )
+    );
+    height: 30px;
+    margin: 0 auto;
+    .toggle {
+        background-color: $white;
+        border-radius: 15px;
+        border: none;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 14px;
+        height: 100%;
+        padding: 0;
+        position: relative;
+        .new-message {
+            @extend %new-message-counter;
+            color: $white;
+            background-color: $theme-red;
+            top: -8px;
+            right: 0;
+        }
+        @include PutTheme(
+            "theme-dark",
+            (
+                "background-color": $theme-dark-alt3,
+            )
+        );
+        @include PutTheme(
+            "theme-dark",
+            (
+                "color": $gray,
+            )
+        );
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background-color: $theme-light-dim;
+            @include PutTheme(
+                "theme-dark",
+                (
+                    background-color: $theme-dark-gray,
+                )
+            );
+        }
+    }
+    .active {
+        color: $white;
+        background-color: $gray-alt;
+        @include PutTheme(
+            "theme-dark",
+            (
+                "background-color": "#{$theme-light-gray} !important",
+            )
+        );
+        @include PutTheme(
+            "theme-dark",
+            (
+                "color": $white,
+            )
+        );
+        &:hover {
+            background-color: $gray-alt;
+            @include PutTheme(
+                "theme-dark",
+                (
+                    background-color: $theme-dark-gray,
+                )
+            );
+        }
+    }
+}

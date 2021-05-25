@@ -1,0 +1,120 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.play-list-holder {
+    padding-top: 20px;
+    .playlist-container {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 20px 0 0 0;
+        padding: 0;
+        width: 420px;
+        .col1 {
+            width: 144px;
+            color: $gray-alt;
+        }
+        .col2 {
+            width: 100px;
+            color: $gray-alt-2;
+        }
+        .col3 {
+            width: 85px;
+            color: $gray-alt;
+            padding-left: 18px;
+        }
+        .header {
+            border-bottom: 1px solid $gray-alt;
+            width: 400px;
+            height: 32px;
+            margin-left: 20px;
+            .blod {
+                font-size: 16px;
+                color: initial;
+            }
+            .header-icon {
+                margin-right: 6px;
+                vertical-align: top;
+            }
+            .col1 {
+                @include PutTheme(
+                    "theme-dark",
+                    (
+                        "color": $theme-dark-gray-alt,
+                    )
+                );
+            }
+            .col2 {
+                border-right: 1px solid $gray-alt;
+            }
+            .col3 {
+                width: 100px;
+            }
+            .col2,
+            .col3 {
+                font-size: 15px;
+                .icon {
+                    vertical-align: top;
+                    margin-right: 4px;
+                }
+            }
+        }
+        .header-col,
+        .row-col {
+            display: inline-block;
+            font-size: 14px;
+            @extend %text-ellipsis;
+        }
+        .header-col {
+            @include PutTheme(
+                "theme-dark",
+                (
+                    "color": $theme-light,
+                )
+            );
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .icon-holder {
+            display: block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            .icon {
+                width: 70%;
+                height: 70%;
+                color: $theme-red;
+            }
+        }
+    }
+    .current-play-list {
+        .collect-all {
+            width: 470px;
+            max-height: 440px;
+            margin-top: 26px;
+            .title {
+                font-weight: 600;
+                margin-top: 8px;
+                text-align: center;
+            }
+            @extend %no-scroll-bar;
+        }
+    }
+}
+.playlist-not-found {
+    margin-top: 240px;
+    text-align: center;
+    width: 100%;
+    color: $gray;
+    .goto {
+        margin-top: 24px;
+        font-size: 14px;
+        .recommand {
+            color: $black;
+            text-decoration: underline;
+        }
+    }
+}

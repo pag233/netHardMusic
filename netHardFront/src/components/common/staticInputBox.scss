@@ -1,0 +1,127 @@
+@import "../scss/common";
+@import "../scss/varaibles";
+
+.static-input-box {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  .static-textarea {
+    border-radius: $corner-radis * 1px;
+    border: 2px solid $theme-light-dim-alt;
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 400;
+    height: 70px;
+    margin-bottom: 8px;
+    outline: none;
+    resize: none;
+    width: 100%;
+    &::placeholder {
+      color: $gray-alt;
+      @include PutTheme(
+        "theme-dark",
+        (
+          color: $theme-dark-gray-alt2,
+        )
+      );
+    }
+    @include PutTheme(
+      "theme-dark",
+      (
+        background-color: $theme-dark-gray,
+        color: $white,
+      )
+    );
+  }
+  .textbox-context {
+    padding: 6px;
+    width: 100px;
+    .context-item {
+      background-color: $white;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      height: 26px;
+      line-height: 26px;
+      text-align: start;
+      text-indent: 6px;
+      width: 100%;
+      font-weight: 600;
+      &:hover {
+        background-color: $light-blue;
+      }
+      &:disabled {
+        font-weight: 500;
+        color: $gray;
+      }
+    }
+  }
+  .shadow-for-locate {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    font-weight: 400;
+    left: 5px;
+    overflow-wrap: break-word;
+    position: absolute;
+    top: 5px;
+    visibility: hidden;
+    white-space: pre-wrap;
+    word-spacing: normal;
+  }
+  .char-count-left {
+    bottom: 45px;
+    color: $gray-alt;
+    font-size: 14px;
+    position: absolute;
+    right: 6px;
+  }
+  .comment-buttons-section {
+    display: flex;
+    .social-media-features {
+      flex-grow: 1;
+      height: 30px;
+      .media-popup {
+        background-color: $white;
+        min-width: 240px;
+        max-height: 200px;
+        @extend %no-scroll-bar;
+        .line-title,
+        .media-line {
+          box-sizing: border-box;
+          padding: 0 20px;
+          font-size: 14px;
+          height: 30px;
+          line-height: 30px;
+          width: 100%;
+        }
+        .line-title {
+          color: $gray-alt;
+        }
+        .media-line {
+          &:hover {
+            background-color: $theme-light-dim;
+            border-radius: 6px;
+          }
+        }
+        .active-media-line {
+          background-color: $theme-light-dim;
+        }
+      }
+    }
+    .comment-confirm-button {
+      height: 30px;
+      width: 60px;
+      @include PutTheme(
+        "theme-dark",
+        (
+          color: $white,
+        )
+      );
+    }
+    .at-button {
+      font-size: 22px;
+    }
+  }
+}

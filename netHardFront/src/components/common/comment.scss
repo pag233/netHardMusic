@@ -1,0 +1,116 @@
+@import "../scss/common";
+@import "../scss/varaibles";
+
+.comment {
+  padding: 0 30px;
+  margin: 18px 0;
+  .input-box {
+    margin-bottom: 42px;
+  }
+  .feature-section,
+  .lastest-section {
+    .comment-title {
+      @include PutTheme(
+        "theme-dark",
+        (
+          color: $white,
+        )
+      );
+    }
+    .comment-holder {
+      @extend %ul-default;
+      .comment-line {
+        display: flex;
+        align-items: center;
+        .comment-avatar {
+          border-radius: 50%;
+          height: 36px;
+          width: 36px;
+          margin-right: 6px;
+          .icon {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            color: $gray-alt;
+          }
+        }
+        .comment-detail {
+          border-bottom: 1px solid $theme-light-dim-alt;
+          flex-grow: 1;
+          font-size: 14px;
+          margin: 10px 0;
+          .comment-text {
+            @include PutTheme(
+              "theme-dark",
+              (
+                color: $white,
+              )
+            );
+          }
+          .comment-user-line {
+            .username {
+              display: inline-block;
+              margin-right: 6px;
+              color: $blue;
+            }
+          }
+          .comment-reply-line {
+            height: 30px;
+            line-height: 30px;
+            background-color: $theme-light-dim;
+            @include PutTheme(
+              "theme-dark",
+              (
+                background-color: $theme-dark-gray-alt,
+                color: $white,
+              )
+            );
+
+            .reply-message {
+              color: $theme-dark-gray-alt2;
+            }
+          }
+          .comment-info-line {
+            color: $gray-alt;
+            display: flex;
+            .date {
+              flex-grow: 1;
+            }
+            .media-line {
+              .icon {
+                cursor: pointer;
+                margin-left: 24px;
+                vertical-align: middle;
+              }
+              .like {
+                .like-num {
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .empty-comment {
+    text-align: center;
+    color: $gray-alt-2;
+  }
+  #shadow-anchor-point {
+    display: inline-block;
+    height: 18px;
+    width: 0;
+  }
+}
+.feature-button {
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 8px;
+  @include PutTheme(
+    "theme-dark",
+    (
+      color: $theme-dark-gray-alt2,
+    )
+  );
+}

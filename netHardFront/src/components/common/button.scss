@@ -1,0 +1,45 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.button {
+  padding: 0;
+  border-radius: 15px;
+  border: 0px solid $theme-light-gray-alt;
+  font-size: 14px;
+  outline: none;
+}
+.round-btn {
+  border-radius: 30px;
+}
+.normal-btn {
+  background-color: $white;
+  border-width: 1px;
+  @include PutTheme(
+    "theme-dark",
+    (
+      "background-color": $theme-dark,
+      "color": $theme-dark-gray-alt2,
+    )
+  );
+  &:hover {
+    background-color: $theme-light-dim;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "background-color": $theme-dark-gray,
+        "color": $theme-dark-gray-alt2,
+      )
+    );
+  }
+}
+.confirm-btn {
+  background-color: $theme-red;
+  color: $white;
+}
+.save-btn {
+  border: none;
+  color: $white;
+  background-color: $pink;
+}
+.circle-btn {
+  border-radius: 50%;
+}

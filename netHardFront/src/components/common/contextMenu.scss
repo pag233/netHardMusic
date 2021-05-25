@@ -1,0 +1,47 @@
+@import "../scss/common";
+@import "../scss/varaibles";
+$context-item-width: 160;
+$context-item-height: 16;
+.menu-context {
+  border-radius: $corner-radis;
+  .context {
+    border-bottom: 2px solid $theme-light-gray-alt;
+    font-size: 14px;
+    .context-item,
+    .sub-context-item {
+      color: $black;
+      display: block;
+      height: $context-item-height * 1px;
+      line-height: $context-item-height * 1px;
+      margin: 6px 0;
+      text-indent: 20px;
+      width: $context-item-width * 1px;
+      @extend %text-ellipsis;
+      .submenu-anchor {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        .text {
+          flex-grow: 1;
+        }
+        .icon {
+          width: 32px;
+          height: 32px;
+          transform: translateY(-8px);
+        }
+        &:hover {
+          .icon {
+            color: $white;
+          }
+        }
+      }
+      &:hover {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}

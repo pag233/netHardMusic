@@ -1,0 +1,52 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.messager {
+  animation: linear forwards fading;
+  background-color: $theme-dark-gray;
+  border-radius: 6px;
+  left: 50%;
+  padding: 24px 40px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  .loading-animation {
+    height: 30px;
+    width: 30px;
+    .icon {
+      color: $white;
+      height: 30px;
+      vertical-align: middle;
+      width: 30px;
+    }
+    .messager-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .loading-message {
+    color: $white;
+    .message {
+      font-size: 20px;
+      height: 27px;
+      line-height: 27px;
+      vertical-align: middle;
+    }
+    .icon {
+      color: $white;
+      height: 30px;
+      vertical-align: text-top;
+      width: 30px;
+    }
+  }
+}
+@keyframes fading {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

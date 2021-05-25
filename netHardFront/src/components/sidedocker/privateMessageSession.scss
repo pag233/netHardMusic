@@ -1,0 +1,183 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.sidedocker-message-list-session-holder {
+    margin-top: 24px;
+    width: 360px;
+    .sidedocker-message-list-session {
+        $input-box-height: 120;
+        $header-line-height: 50;
+        background-color: $white;
+        bottom: 60px;
+        left: 0;
+        padding: 0 12px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        @extend %no-scroll-bar;
+        @include PutTheme(
+            "theme-dark",
+            (
+                background-color: $theme-dark-gray,
+            )
+        );
+        .header-line {
+            background-color: $white;
+            box-sizing: border-box;
+            height: $header-line-height * 1px;
+            padding-top: 16px;
+            position: sticky;
+            top: 0;
+            @include PutTheme(
+                "theme-dark",
+                (
+                    color: $white,
+                    background-color: $theme-dark-gray,
+                )
+            );
+            .back {
+                cursor: pointer;
+                float: left;
+                .icon {
+                    color: $gray-alt;
+                    height: 30px;
+                    width: 30px;
+                    transform: rotateY(180deg);
+                }
+            }
+            .username {
+                font-weight: 600;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+        .message-line-holder {
+            min-height: calc(100% - #{($input-box-height + $header-line-height) * 1px});
+            .message-line-loading {
+                margin-top: 120px;
+            }
+            .message-line {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 15px;
+                .message-date {
+                    display: flex;
+                    justify-content: center;
+                    font-size: 12px;
+                    margin-bottom: 15px;
+                    width: 100%;
+                    .date {
+                        display: block;
+                        background-color: $theme-light-dim;
+                        border-radius: 15px;
+                        padding: 2px 10px;
+                        @include PutTheme(
+                            "theme-dark",
+                            (
+                                color: $white,
+                                background-color: $theme-dark-gray-alt2,
+                            )
+                        );
+                    }
+                }
+                .message-line-avatar {
+                    height: 30px;
+                    margin: 0 12px;
+                    width: 30px;
+                }
+                .message-pop {
+                    max-width: 70%;
+                    word-break: break-word;
+                    background-color: $theme-light-gray-alt;
+                    border-radius: 15px;
+                    border-top-left-radius: 0;
+                    padding: 8px 10px;
+                    @include PutTheme(
+                        "theme-dark",
+                        (
+                            color: $white,
+                            background-color: $theme-dark-gray-alt2,
+                        )
+                    );
+                }
+            }
+            .reverse {
+                flex-direction: row-reverse;
+                .message-pop {
+                    background-color: $blue-light;
+                    border-radius: 15px;
+                    border-top-right-radius: 0;
+                    @include PutTheme(
+                        "theme-dark",
+                        (
+                            color: $white,
+                            background-color: $blue,
+                        )
+                    );
+                }
+            }
+        }
+        .input-area {
+            background-color: $white;
+            bottom: 0;
+            box-sizing: border-box;
+            height: $input-box-height * 1px;
+            padding-bottom: 20px;
+            position: sticky;
+            @include PutTheme(
+                "theme-dark",
+                (
+                    background-color: $theme-dark-gray,
+                )
+            );
+            .text-box {
+                border-radius: $corner-radis * 1px;
+                border: 2px solid $theme-light-gray-alt;
+                box-sizing: border-box;
+                height: 66px;
+                outline: none;
+                padding: 6px;
+                resize: none;
+                width: 100%;
+                &::placeholder {
+                    color: $gray-alt;
+                }
+                @include PutTheme(
+                    "theme-dark",
+                    (
+                        background-color: $theme-dark-gray-alt,
+                    )
+                );
+            }
+            .textlength {
+                font-size: 12px;
+                color: $gray-alt;
+                position: absolute;
+                bottom: 56px;
+                right: 4px;
+            }
+            .emoji-button {
+                display: inline-block;
+                color: $gray-alt;
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 6px;
+            }
+            .input-confirm {
+                float: right;
+                height: 30px;
+                width: 60px;
+                margin-bottom: 16px;
+                @include PutTheme(
+                    "theme-dark",
+                    (
+                        color: $white,
+                        border: 1px solid $theme-dark-gray-alt,
+                        background-color: $theme-dark-gray,
+                    )
+                );
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import '../scss/varaibles';
+@import '../scss/common';
+.side-docker{
+    -ms-overflow-style: none;  /* IE and Edge */
+    background-color: $white;
+    @include PutTheme('theme-dark',(
+        'background-color':$theme-dark-alt3
+    ));
+    border-radius: $corner-radis * 1px;
+    bottom: 0px;
+    box-shadow:$box-shadow;
+    @include PutTheme('theme-dark',(
+        'box-shadow':$box-shadow-dark
+    ));
+    overflow-x:hidden;
+    overflow-y:scroll;
+    position: fixed;
+    right: 0;
+    scrollbar-width: none;  /* Firefox */
+    top: 50px;
+    z-index: 3;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}

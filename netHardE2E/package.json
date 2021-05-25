@@ -1,0 +1,19 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "e2e test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.5.0",
+    "allure-commandline": "^2.13.8",
+    "mocha": "^8.3.2"
+  },
+  "devDependencies": {
+    "cypress": "^7.3.0"
+  }
+}

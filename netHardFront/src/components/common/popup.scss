@@ -1,0 +1,18 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.popup {
+  position: fixed;
+  z-index: 5;
+  border-radius: $corner-radis * 1px;
+  @include PutTheme(
+    "theme-dark",
+    (
+      "box-shadow": $box-shadow-dark,
+    )
+  );
+  box-shadow: $box-shadow;
+  background-color: $white;
+}
+.no-shadow {
+  box-shadow: none;
+}

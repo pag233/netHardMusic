@@ -1,0 +1,85 @@
+@import '../../../../scss/varaibles';
+
+$common-margin-bottom:20;
+.main-body-user-info-edit{
+    display: flex;
+    flex-wrap: wrap;
+    .title{
+        width: 100%;
+    }
+    .form{
+        div{
+            margin-bottom: $common-margin-bottom * 1px;
+        }
+        label, span{
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+        .input-holder{
+            display: flex;
+            align-items: top;
+        }
+        .username,.description{
+            width: 420px;
+            height: 30px;
+            border: 2px solid $theme-light-gray-alt;
+            border-radius: $corner-radis * 1px;
+            &:focus{
+                outline: none;
+            }
+        }
+        .description{
+            height: 74px;
+            resize: none;
+        }
+        .select{
+            border: 2px solid $theme-light-gray-alt;
+            border-radius: $corner-radis * 1px;
+            margin-right: 10px;
+        }
+        .confirm,.cancel{
+            width: 100px;
+            height: 30px;
+            border-radius: 30px;
+            &:focus{
+                outline: none;
+            }
+        }
+        .confirm{
+            border: 2px solid $pink;
+            background-color: $pink;
+            margin-right: 20px;
+        }
+        .cancel{
+            border: 2px solid $theme-light-gray-alt;
+            background-color: $white;
+        }
+        .info-msg{
+            color: $theme-red;
+        }
+    }
+    .avatar-holder{
+        margin-left: 50px;
+        .avatar{
+            $avatar-size:150;
+            width: $avatar-size * 1px;
+            height: $avatar-size * 1px;
+            color: $theme-light-gray-alt;
+        }
+        .avatar-edit{
+            margin: 25px auto;
+            display: block;
+            text-align: center;
+            width: 90px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 30px;
+            background-color: $white;
+            border:2px solid $theme-light-gray-alt;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+}

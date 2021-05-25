@@ -1,0 +1,97 @@
+@import "../../scss/varaibles";
+@import "../../scss/common";
+
+.songlist-info {
+  width: 700px;
+  margin-left: 30px;
+  font-size: 14px;
+  @include PutTheme(
+    "theme-dark",
+    (
+      "color": $theme-dark-gray-alt2,
+    )
+  );
+  .cover-holder {
+    float: right;
+    width: 150px;
+    .cover {
+      width: 100%;
+      height: 150px;
+      .cover-img {
+        width: 100%;
+        height: 100%;
+      }
+      .icon {
+        width: 100%;
+        height: 100%;
+        color: $theme-light-gray-alt;
+      }
+    }
+    .edit-cover {
+      display: block;
+      width: 94px;
+      height: 30px;
+      margin: 30px auto;
+    }
+  }
+  .name-input,
+  .description-iput {
+    width: 420px;
+  }
+  .name-label {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+  }
+  .name-input,
+  .description-iput {
+    border: 1px solid $theme-light-gray-alt;
+    border-radius: $corner-radis;
+  }
+  .name-input {
+    outline: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  .tag-label,
+  .description-label {
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+    height: 56px;
+    line-height: 56px;
+  }
+  .tag-holder > .tag {
+    border-radius: 15px;
+    border: 1px solid $gray-alt-2;
+    color: $gray-alt-2;
+    display: inline-block;
+    padding: 2px 5px;
+    margin-right: 6px;
+  }
+  .add-tag {
+    @extend %with-pointer;
+    text-decoration: underline;
+  }
+  .description-iput {
+    height: 76px;
+    outline: none;
+    resize: none;
+    vertical-align: top;
+  }
+  .button-holder {
+    margin-top: 40px;
+    margin-left: 60px;
+    .btn-confirm {
+      width: 84px;
+      height: 30px;
+      margin-right: 20px;
+    }
+  }
+  .msg {
+    color: $theme-red;
+    margin-top: 20px;
+    margin-left: 60px;
+  }
+}

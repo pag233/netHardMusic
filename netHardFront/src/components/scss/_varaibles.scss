@@ -1,0 +1,70 @@
+///维度
+///header以及sidebar-top的高度。
+$header-height: 50 !default;
+$footer-height: 60 !default;
+///sidebar最小宽度
+$sidebar_min_width: 200 !default;
+// sidebar拖动区域宽度
+$drag-area-width: 6;
+///公共圆角
+$corner-radis: 6 !default;
+///统一、对齐sidebar-top上的前后导航以及main-frame上的导航
+$top-offset-from-viewport: 22;
+
+///颜色
+//通用颜色
+$white: rgb(255, 255, 255);
+$white-dim: rgb(234, 234, 234);
+$white-dim-2: rgb(172, 172, 172);
+$gray: rgb(169, 169, 169);
+$gray-alt: rgb(191, 191, 191);
+$gray-alt-2: rgb(133, 133, 133);
+$black: rgb(0, 0, 0);
+$pink: rgb(240, 157, 160);
+$pink-alt: rgb(252, 245, 244);
+$red-light: rgb(223, 85, 80);
+$red-dim: rgb(200, 61, 56);
+$light-blue: rgb(220, 229, 239);
+$blue: rgb(82, 126, 173);
+$blue-light: rgb(214, 231, 249);
+$blue-dim: rgb(70, 80, 89);
+$gray-opacity: rgba(201, 198, 198, 0.582);
+///red主题
+//红
+$theme-red: rgb(210, 71, 64);
+$theme-red-dim: rgb(211, 73, 66);
+$theme-red-dim-alt: rgb(190, 74, 70);
+//灰
+$theme-red-gray: rgba(255, 255, 255, 0.2);
+$theme-red-gray-light: rgba(255, 255, 255, 0.6);
+//白
+$theme-red-white: rgb(222, 222, 222);
+
+///light主题
+// 白
+$theme-light: rgb(248, 248, 248);
+$theme-light-dim: rgb(245, 245, 245);
+$theme-light-dim-alt: rgb(236, 236, 236);
+//灰
+$theme-light-gray: rgb(100, 100, 100);
+$theme-light-gray-alt: rgb(225, 225, 225);
+$theme-light-black: rgb(0, 0, 0);
+///dark主题
+//黑
+$theme-dark: rgb(37, 37, 37);
+$theme-dark-alt: rgb(43, 43, 43);
+$theme-dark-alt2: rgb(32, 32, 32);
+$theme-dark-alt3: rgb(45, 45, 45);
+$theme-dark-alt4: rgb(27, 27, 27);
+//灰
+$theme-dark-gray: rgb(54, 54, 54);
+$theme-dark-gray-alt: rgb(75, 75, 75);
+$theme-dark-gray-alt2: rgb(139, 139, 139);
+
+///popup box shadow
+$box-shadow: 0px 1px 3px 1px #bababa;
+$box-shadow-dark: 0px 1px 3px 1px $theme-dark;
+
+///login popup input width
+$login-popup-input-width: 260;
+$login-popup-input-height: 38;

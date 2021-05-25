@@ -1,0 +1,40 @@
+@import "../scss/common";
+@import "../scss/varaibles";
+
+.emoji-popup {
+  padding: 20px;
+  .close-popup {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: $gray-alt;
+    }
+  }
+  .emoji-line-holder {
+    .emoji-line {
+      margin-bottom: 8px;
+      .emoji {
+        font-size: 20px;
+        margin-right: 12px;
+        cursor: pointer;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+    .spiner-holder {
+      text-align: center;
+      .spiner {
+        display: inline-block;
+        margin-right: 6px;
+        color: $white-dim;
+      }
+      .spiner-active {
+        color: $theme-dark-gray-alt2;
+      }
+    }
+  }
+}

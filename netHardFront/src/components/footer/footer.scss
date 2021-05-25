@@ -1,0 +1,153 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+.footer {
+    bottom: 0;
+    height: $footer-height * 1px;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    .footer-grid-holder {
+        color: $white-dim-2;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr;
+        .footer-detail {
+            align-items: center;
+            display: flex;
+            justify-self:stretch;
+            height: $footer-height * 1px;
+            overflow: hidden;
+            .footer-detail-logo {
+                background-color: $theme-light-dim-alt;
+                background-size: contain;
+                border-radius: 4px;
+                display: block;
+                height: 40px;
+                margin: 10px;
+                width: 40px;
+                flex-shrink: 0;
+            }
+            .footer-detail-info {
+                .footer-detail-title {
+                    .name {
+                        @include PutTheme('theme-red',(
+                            "color": black
+                        ));
+                        @include PutTheme('theme-dark',(
+                            "color": $gray-alt
+                        ));
+                        @extend %text-ellipsis;
+                    }
+                    .artist{
+                        @extend %text-ellipsis;
+                    }
+                }
+            }
+        }
+        .footer-player {
+            align-items: center;
+            display: flex;
+            height: $footer-height * 1px;
+            justify-self:center;
+            .faved{
+                .icon{
+                    color:$theme-red;
+                }
+            }
+            .play{
+                color: $theme-red;
+                position: relative;
+                .icon{
+                    height: 40px;
+                    position: relative;
+                    width: 40px;
+                    z-index: 1;
+                }
+                .play-background{
+                    @include PutTheme('theme-red',(
+                        "background-color":$white
+                    ));
+                    @include PutTheme('theme-dark',(
+                        "background-color":$white
+                    ));
+                    border-radius: 50%;
+                    bottom: 0;
+                    height: 32px;
+                    left: 50%;
+                    top: 50%;
+                    position: absolute;
+                    width: 32px;
+                    transform: translate(-50%,-50%);
+                }
+            }
+
+            .controller {
+                color: $theme-red;
+                margin: 0 26px;
+            }
+        }
+        .footer-options {
+            align-items: center;
+            display: flex;
+            height: $footer-height * 1px;
+            justify-content: flex-end;
+            margin-right: 30px;
+            .option-item{
+                margin-left: 30px;
+            }
+            .active{
+                color:$theme-red
+            }
+            .play-mode-text{
+                width: 60px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                text-align: center;
+                color: $theme-light-black;
+            }
+            .volume-bar-holder{
+                height: 100px;
+                position: relative;
+                width: 30px;
+                transform: rotateZ(180deg);
+                @include PutTheme('theme-dark',(
+                    "background-color": $theme-dark-alt
+                ));
+                .volume-bar-click-area{
+                    width: 16px;
+                    height: 75px;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    .volume-bar-back{
+                        background-color: $theme-light;
+                        border-radius: 30px;
+                        height: 100%;
+                        width: 4px;
+                        margin: 0 auto;
+                        .bar{
+                            position: relative;
+                            background-color: $theme-red;
+                            border-radius: 30px;
+                            .ball{
+                                background-color: $theme-red;
+                                bottom: -5px;
+                                border-radius: 50%;
+                                height: 10px;
+                                left: 50%;
+                                position: absolute;
+                                transform: translateX(-50%);
+                                width: 10px;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "../../scss/common";
+@import "../../scss/varaibles";
+.user-avatar {
+    .user-avatar-img,
+    .icon {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        color: $theme-light-gray;
+    }
+}

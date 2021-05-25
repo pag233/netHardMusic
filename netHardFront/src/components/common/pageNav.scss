@@ -1,0 +1,34 @@
+@import "../scss/common";
+@import "../scss/varaibles";
+.page-nav {
+  @extend %ul-default;
+  text-align: center;
+  .page {
+    @extend %with-pointer;
+    border-radius: 6px;
+    border: 1px solid $theme-light-gray-alt;
+    color: $theme-light-gray;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 2px;
+    vertical-align: middle;
+    width: 24px;
+    .icon {
+      font-size: 24px;
+    }
+  }
+  .page-active {
+    color: $white;
+    background-color: $theme-red;
+  }
+  .prev {
+    transform: rotateZ(180deg);
+  }
+  .disabled {
+    @extend %without-pointer;
+    .icon {
+      color: $theme-light-gray-alt;
+    }
+  }
+}

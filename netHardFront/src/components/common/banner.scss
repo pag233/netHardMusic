@@ -1,0 +1,117 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+.banner-holder {
+  position: relative;
+  width: 100%;
+  height: 232px;
+  padding: 0;
+  margin: 0 0 22px 0;
+  list-style: none;
+  .banner {
+    position: absolute;
+    display: block;
+    transition: all 0.6s;
+    // width: 540px;
+    // height: 200px;
+    width: 432px;
+    height: 160px;
+    z-index: 0;
+    .banner-image {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+    }
+    .image-title {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 400;
+      padding: 0 10px;
+      color: $white;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .title-blue {
+      background-color: rgb(67, 98, 233);
+    }
+    .title-red {
+      background-color: $theme-red;
+    }
+  }
+  .left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .front {
+    height: 200px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 540px;
+    z-index: 2;
+    a {
+      @extend %with-pointer;
+    }
+  }
+  .back {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .banner-dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .banner-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: $theme-light-gray-alt;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    .active {
+      background-color: $theme-red-dim;
+    }
+  }
+  &:hover {
+    .forward,
+    .backward {
+      opacity: 0.3;
+    }
+  }
+  .forward,
+  .backward {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(73, 73, 73);
+    opacity: 0;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .forward {
+    left: 0;
+  }
+  .backward {
+    right: 0;
+  }
+}

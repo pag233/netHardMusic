@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:latest
+    expose: 
+      - 27017
+    volumes:
+      - ./netHardDBDump/init_db.sh:/docker-entrypoint-initdb.d/init_db.sh
+      - ./netHardDBDump/db.dump:/data/dump/db.dump
+    container_name: netHardDB
+  backend:
+    environment:
+      - MongoDBConnectionString=mongodb://mongodb:27017/netHardMusic
+    build:
+      context: ./netHardBack
+      args: 
+        ORIGIN: http://localhost:${FRONTEND_PORT}
+    ports:
+      - "${BACKEND_PORT}:9630"
+    container_name: netHardBack
+    depends_on:
+      - mongodb
+  frontend:
+    build:
+      context: ./netHardFront
+      args:
+        REACT_APP_BACKEND: localhost:${BACKEND_PORT}
+    ports:
+      - "${FRONTEND_PORT}:3000"
+    container_name: netHardFront
+    depends_on:
+      - backend

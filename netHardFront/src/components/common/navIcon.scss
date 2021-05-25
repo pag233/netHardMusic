@@ -1,0 +1,48 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+///前进后退图标holder
+@mixin navIconHolderMixin() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  &.disabled:hover {
+    background-color: transparent !important;
+  }
+}
+///前进后退图标
+/// @param {true | false} $isLeft - true时生成后退图标
+/// @param {number} $size [7] - 图标大小，默认7像素
+@mixin icon($isLeft, $size: 7) {
+  width: $size * 1px;
+  height: $size * 1px;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: $white;
+
+  @if $isLeft {
+    transform: rotateZ(45deg);
+  } @else {
+    transform: rotateZ(-135deg);
+  }
+}
+
+.icon-left,
+.icon-right {
+  z-index: 1;
+}
+.icon-left {
+  @include navIconHolderMixin();
+  .nav-icon {
+    @include icon(true);
+  }
+}
+.icon-right {
+  @include navIconHolderMixin();
+  .nav-icon {
+    @include icon(false);
+  }
+}

@@ -1,0 +1,90 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+.songlist-line-item,
+.songlist-line-item-static {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  align-items: center;
+  white-space: nowrap;
+  .cover {
+    flex-shrink: 0;
+    margin-left: 16px;
+    @include MakeCover();
+    & > .play-icon-holder {
+      position: relative;
+      left: 50%;
+      padding-top: 25%;
+      top: 50%;
+      width: 25%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .name {
+    flex-basis: 70%;
+    margin-left: 10px;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $white-dim-2,
+      )
+    );
+  }
+  .by-text {
+    color: $theme-red-white;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $theme-dark-gray,
+      )
+    );
+  }
+  .sub {
+    display: flex;
+    align-items: center;
+    flex-basis: 25%;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $theme-light-gray,
+      )
+    );
+    & > span {
+      margin-left: 4px;
+    }
+  }
+  &:hover {
+    background-color: $theme-light-dim;
+    @include PutTheme(
+      "theme-dark",
+      (
+        background-color: $theme-dark-gray,
+      )
+    );
+  }
+}
+.songlist-line-item {
+  &:nth-of-type(2n + 1) {
+    background-color: $theme-light;
+    @include PutTheme(
+      "theme-dark",
+      (
+        background-color: $theme-dark-alt,
+      )
+    );
+  }
+}
+.songlist-line-item-static {
+  border-bottom: 1px solid $theme-light-dim;
+  div.item-info {
+    margin-left: 10px;
+    .name {
+      margin-left: 0;
+    }
+    .total {
+      color: $gray-alt;
+      font-size: 14px;
+    }
+  }
+}

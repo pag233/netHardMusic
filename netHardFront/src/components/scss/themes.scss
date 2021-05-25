@@ -1,0 +1,165 @@
+/// deprecated use common/putTheme
+@import "./varaibles";
+
+$red: (
+  "name": "theme-red",
+  // 背景色
+  "attrMap":
+    (
+      "background-color": (
+        ".main-header": $theme-red,
+        //边栏上部导航
+        ".sidebar-top": $theme-red-dim,
+        //sidebar下部
+        ".sidebar-bottom": $white-dim,
+        //右侧主体页面
+        ".main-frame": $white,
+        //footer
+        ".footer": $white,
+        //header右侧选项hover
+        ".main-header-option:hover": $theme-red-dim-alt,
+        //sidebar上部导航hover
+        ".sidebar-nav-icon .sidebar-nav-back:hover,.sidebar-nav-forward:hover":
+          $theme-red-gray,
+        //sidebar下部当前路由
+        ".sidebar-bottom .sidebar-list .active .sidebar-item": $theme-red-white,
+      ),
+      // 字体颜色
+      "color":
+        (
+          ".main-header-font": $theme-red-gray-light,
+          //当前路由
+          ".main-header-nav-link .selected": $white,
+          //sidebar下部当前路由
+          ".sidebar-bottom .sidebar-list .active": $theme-red,
+          ".footer-player .controler": $theme-red,
+          ".footer-options .line": $theme-red,
+        ),
+      //sidebar上部前后导航
+      "border-color":
+        (
+          ".sidebar-nav-icon .icon.disabled": $theme-red-gray,
+          ".sidebar-nav-icon .icon": $white,
+        ),
+    ),
+);
+
+$light: (
+  "name": "theme-light",
+  // 背景色
+  "attrMap":
+    (
+      "background-color": (
+        ".main-header": $theme-light,
+        //边栏上部导航
+        ".sidebar-top": $theme-light-dim,
+        //sidebar下部
+        ".sidebar-bottom": $white-dim,
+        //右侧主体页面
+        ".main-frame": $white,
+        //footer
+        ".footer": $white,
+        //header右侧选项hover
+        ".main-header-option:hover": $theme-light-dim-alt,
+        //sidebar上部导航hover
+        ".sidebar-nav-icon .sidebar-nav-back:hover,.sidebar-nav-forward:hover":
+          $theme-light-gray-alt,
+        //sidebar下部当前路由
+        ".sidebar-bottom .sidebar-list .active .sidebar-item":
+          $theme-light-gray-alt,
+      ),
+      // 字体颜色
+      "color":
+        (
+          ".main-header-font": $theme-light-gray,
+          //当前路由
+          ".main-header-nav-link .selected": $theme-light-black,
+          //sidebar下部当前路由
+          ".sidebar-bottom .sidebar-list .active": $theme-red,
+          ".footer-player .controler": $theme-red,
+          ".footer-options .line": $theme-red,
+        ),
+      //sidebar上部前后导航
+      "border-color":
+        (
+          ".sidebar-nav-icon .icon.disabled": $theme-light-gray-alt,
+          ".sidebar-nav-icon .icon": $theme-light-black,
+        ),
+    ),
+);
+$dark: (
+  "name": "theme-dark",
+  // 背景色
+  "attrMap":
+    (
+      "background-color": (
+        ".main-header": $theme-dark-alt,
+        //边栏上部导航
+        ".sidebar-top": $theme-dark,
+        //sidebar下部
+        ".sidebar-bottom": $theme-dark-alt2,
+        //右侧主体页面
+        ".main-frame": $theme-dark-alt3,
+        //footer
+        ".footer": $theme-dark-alt3,
+        //header右侧选项hover
+        ".main-header-option:hover": $theme-dark-gray,
+        //sidebar上部导航hover
+        ".sidebar-nav-icon .sidebar-nav-back:hover,.sidebar-nav-forward:hover":
+          $theme-dark-gray-alt,
+        //sidebar下部当前路由
+        ".sidebar-bottom .sidebar-list .active .sidebar-item": $theme-dark-alt4,
+      ),
+      // 字体颜色
+      "color":
+        (
+          ".main-header-font": $theme-dark-gray-alt2,
+          //当前路由
+          ".main-header-nav-link .selected": $white,
+          //sidebar下部当前路由
+          ".sidebar-bottom .sidebar-list .active": $theme-red,
+          ".footer-player .controler": $theme-red,
+          ".footer-options .line": $theme-red,
+          ".sidebar-avatar .avatar": $theme-dark-gray-alt2,
+          ".sidebar-bottom": $theme-dark-gray-alt2,
+        ),
+      //sidebar上部前后导航
+      "border-color":
+        (
+          ".sidebar-nav-icon .icon.disabled": $theme-dark-gray-alt,
+          ".sidebar-nav-icon .icon": $white,
+        ),
+    ),
+);
+
+/// @param {map} $attrMap - {name: 主题样式类名, attrMap:选择器为键，属性值为值的map }
+@mixin ThemeAttrMixin($attrMap) {
+  @each $attr, $map in $attrMap {
+    @each $selector, $value in $map {
+      #{$selector} {
+        #{$attr}: #{$value};
+      }
+    }
+  }
+}
+
+///用于生成多个主题样式。
+///@param {list} $themes - 元素为map{name: 主题样式类名, attrMap:选择器为键，属性值为值的map }
+@mixin createThemeMixin($themes) {
+  @each $theme in $themes {
+    .#{map-get($theme,"name")} {
+      @include ThemeAttrMixin(map-get($theme, "attrMap"));
+    }
+  }
+}
+
+$themes: ($red, $light, $dark);
+@include createThemeMixin($themes);
+
+//全局链接样式
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+  cursor: default;
+}

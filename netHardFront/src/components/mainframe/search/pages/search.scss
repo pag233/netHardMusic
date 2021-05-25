@@ -1,0 +1,122 @@
+@import "../../../scss/common";
+@import "../../../scss/varaibles";
+
+.songlist-line-container {
+  @extend %ul-default;
+  .by,
+  .size {
+    color: $gray-alt;
+    flex-basis: 15%;
+  }
+}
+.search {
+  position: relative;
+  .search-fix-box {
+    background-color: $white;
+    position: sticky;
+    top: -15px;
+    z-index: 1;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "background-color": $theme-dark-alt3,
+      )
+    );
+    .search-type {
+      margin-left: 30px;
+      margin-bottom: 30px;
+      .query {
+        font-size: 24px;
+        margin-right: 6px;
+        @include PutTheme(
+          "theme-dark",
+          (
+            "color": $white,
+          )
+        );
+      }
+      .total {
+        font-size: 12px;
+        color: $theme-light-gray;
+        .number {
+          margin: 0 4px;
+        }
+      }
+    }
+    .search-type-nav {
+      @extend %ul-default;
+      border-bottom: 1px solid $white-dim;
+      padding-left: 30px;
+      padding-bottom: 10px;
+      .type {
+        @extend %with-pointer;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 500;
+        margin-right: 32px;
+        @include PutTheme(
+          "theme-dark",
+          (
+            "color": $white,
+          )
+        );
+      }
+      .active {
+        .type {
+          font-weight: 600;
+        }
+      }
+    }
+    .title {
+      height: 32px;
+      line-height: 32px;
+      color: $theme-dark-gray-alt2;
+      font-size: 14px;
+      .span {
+        display: inline-block;
+      }
+    }
+  }
+  .not-found {
+    text-align: center;
+    font-size: 14px;
+    .query {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+.user-search-result {
+  .users-container {
+    @extend %ul-default;
+    .user-line {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      flex-wrap: nowrap;
+      padding: 10px 0;
+      &:hover {
+        background-color: $theme-light-dim-alt;
+      }
+      .user-line-avatar {
+        border-radius: 50%;
+        height: 60px;
+        margin-left: 30px;
+        width: 60px;
+      }
+      .username {
+        margin-left: 20px;
+        flex-grow: 1;
+      }
+      .description {
+        color: $gray-alt-2;
+        margin-right: 40px;
+      }
+    }
+    a:nth-of-type(2n) {
+      .user-line {
+        background-color: $theme-light-dim;
+      }
+    }
+  }
+}

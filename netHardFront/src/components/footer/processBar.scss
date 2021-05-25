@@ -1,0 +1,52 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+.process-bar {
+  width: 100%;
+  position: relative;
+  .process-bar-background {
+    height: 2px;
+    // background-color: $white-dim;
+    @include PutTheme(
+      "theme-red",
+      (
+        "background-color": $white-dim,
+      )
+    );
+    @include PutTheme(
+      "theme-dark",
+      (
+        "background-color": $theme-dark-alt2,
+      )
+    );
+    .bar {
+      height: 100%;
+      background-color: $theme-red;
+      position: relative;
+      .ball {
+        position: absolute;
+        visibility: hidden;
+        right: 0;
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: $theme-red;
+        transform: translate(50%, -42%);
+      }
+    }
+  }
+  .process-bar-click-area {
+    position: absolute;
+    top: -7px;
+    width: 100%;
+    height: 16px;
+  }
+  &:hover {
+    .bar {
+      .ball {
+        visibility: visible;
+      }
+    }
+  }
+}

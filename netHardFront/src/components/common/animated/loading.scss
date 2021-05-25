@@ -1,0 +1,45 @@
+@import '../../scss/varaibles';
+
+@mixin spin($count) {
+    @for $idx from 0 to $count + 1 {
+        .spin-#{$idx}{
+            animation-delay: (1.8 - 0.3 * $idx) * 1s;
+            transform: rotate(20 * $idx * 1deg);
+        }
+    }
+}
+.loading-holder{
+    position: relative;
+    .loading-spins-container{
+        border-radius: 50%;
+        border-color: #ddd;
+        border-style: solid;
+        box-sizing: border-box;
+        margin: 0 auto;
+        transform: rotateZ(45deg);
+        .loading-spin{
+            animation: 1.8s cubic-bezier(0.79, 0.18, 0.95, 0.13) 1 forwards loop;
+            background-color: $blue;
+            border-radius: 50%;
+            height: 10%;
+            position:absolute;
+            width: 10%;
+            z-index: 1;
+        }
+        @include spin(6);
+    }
+    .loading-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+@keyframes loop{
+    50%, to{
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}

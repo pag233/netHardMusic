@@ -1,0 +1,69 @@
+@import "../scss/varaibles";
+.moveable-box {
+  position: fixed;
+  background-color: $white;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  border-radius: $corner-radis * 1px;
+  box-shadow: $box-shadow;
+  .moveable-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    cursor: move;
+  }
+  .moveable-close {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: $gray-alt;
+    }
+  }
+}
+
+.new-songlist-container {
+  color: initial;
+  font-size: 12px;
+  padding: 0 8px;
+  width: 470px;
+  .new-songlist-title {
+    font-weight: 600;
+    margin-bottom: 34px;
+    text-align: center;
+  }
+  .songlist-title-input {
+    box-sizing: border-box;
+    display: block;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    &:focus {
+      outline: none;
+      text-decoration: none;
+    }
+  }
+  .songlist-private {
+    display: inline-block;
+    margin-right: 6px;
+  }
+  .songlist-submit {
+    background-color: $pink;
+    border-radius: 15px;
+    border: none;
+    color: $white;
+    display: block;
+    height: 30px;
+    margin: 32px auto 0 auto;
+    width: 94px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

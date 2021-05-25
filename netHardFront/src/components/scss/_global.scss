@@ -1,0 +1,12 @@
+.high-light-item {
+  font-weight: 500;
+  .high-light {
+    color: $blue;
+  }
+}
+.no-implementation {
+  cursor: not-allowed;
+  &:hover {
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,367 @@
+@import "../scss/varaibles";
+@import "../scss/common";
+
+.songlists {
+  margin-top: 45px;
+  .list-length {
+    font-size: 14px;
+    color: $gray;
+  }
+  .list-title {
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 18px;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $white-dim-2,
+      )
+    );
+  }
+  .change-style {
+    float: right;
+    .toggle-button {
+      display: inline-block;
+      width: 25px;
+      height: 20px;
+      background-color: $theme-light-dim;
+      @include PutTheme(
+        "theme-dark",
+        (
+          "background-color": $theme-dark-gray,
+        )
+      );
+      @include PutTheme(
+        "theme-dark",
+        (
+          "border": 2px solid $theme-dark,
+        )
+      );
+      text-align: center;
+      & > svg {
+        display: block;
+        color: $gray;
+        margin: 2px auto;
+      }
+      &.active {
+        background-color: $gray-alt;
+        @include PutTheme(
+          "theme-dark",
+          (
+            "background-color": $theme-light-gray,
+          )
+        );
+        & > svg {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+.songlists-image {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 0 16px 0;
+  .image-item {
+    margin-right: 18px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    /// *hack no.1*
+    /// .cover-holder容器宽度设置成为100%，
+    /// .cover子容器利用position:absolute填充整个父容器且padding-top设置为相应的百分比以实现固定比例宽高。
+    /// padding-top在components/mainframe/common/songlist/SongListImage组件中通过宽高比参数xRatio,yRatio确定。
+    .cover-holder {
+      position: relative;
+      width: 100%;
+      .cover {
+        @include MakeCover();
+        //覆盖默认 postition: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        & > .play-icon-holder {
+          width: 8%;
+          padding-top: 8%;
+          top: auto;
+          left: auto;
+          bottom: 15px;
+          right: 15px;
+          .icon {
+            filter: blur(0.3px);
+          }
+        }
+      }
+    }
+    .item-info {
+      .name {
+        color: $theme-dark-gray;
+        @include PutTheme(
+          "theme-dark",
+          (
+            color: $white-dim-2,
+          )
+        );
+        font-weight: 500;
+        &:hover {
+          color: $black;
+          @include PutTheme(
+            "theme-dark",
+            (
+              color: $white,
+            )
+          );
+        }
+      }
+      .name,
+      .subtitle {
+        height: 22px;
+        line-height: 22px;
+        word-wrap: break-word;
+      }
+      .subtitle {
+        color: $gray;
+      }
+    }
+  }
+  .name {
+    font-size: 14px;
+    line-height: 14px;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $gray,
+      )
+    );
+  }
+  .subtitle {
+    font-size: 12px;
+    line-height: 12px;
+    color: $gray;
+    @include PutTheme(
+      "theme-dark",
+      (
+        "color": $theme-light-gray,
+      )
+    );
+  }
+}
+.songlists-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  .name {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .subtitle {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .sub {
+    color: $gray;
+  }
+}
+.songlists-list-image {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  .list-image-item {
+    display: flex;
+    margin-bottom: 48px;
+    .cover {
+      margin-right: 60px;
+      @include MakeCover();
+    }
+    .list-holder {
+      flex-grow: 1;
+      @include PutTheme(
+        "theme-dark",
+        (
+          "color": $white-dim-2,
+        )
+      );
+      .name {
+        display: block;
+        font-size: 1em;
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+      .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        .item {
+          .key {
+            display: inline-block;
+            text-align: right;
+            margin-left: 20px;
+            width: 1em;
+            @include PutTheme(
+              "theme-dark",
+              (
+                "color": $theme-light-gray,
+              )
+            );
+            .icon {
+              color: $theme-red;
+            }
+          }
+          .heart {
+            margin-left: 12px;
+            vertical-align: middle;
+            .fav {
+              .icon {
+                color: $gray-alt;
+              }
+            }
+            .faved {
+              .icon {
+                color: $theme-red;
+              }
+            }
+          }
+          .song {
+            font-size: 14px;
+            font-weight: 400;
+            margin-left: 12px;
+            color: $theme-light-black;
+            @include PutTheme(
+              "theme-dark",
+              (
+                "color": $white-dim-2,
+              )
+            );
+          }
+          .played,
+          .time {
+            float: right;
+            width: 10%;
+            white-space: nowrap;
+            @include PutTheme(
+              "theme-dark",
+              (
+                "color": $theme-light-gray,
+              )
+            );
+          }
+        }
+        .all-tracks {
+          text-align: right;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .name {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .subtitle {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .sub {
+    color: $gray;
+  }
+}
+.songlists-multi-colume-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+  .multi-colume-item-holder {
+    $border-light: 1px solid $theme-light-dim;
+    $border-dark: 1px solid $theme-dark-alt2;
+    border-radius: $corner-radis * 1px;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    .multi-colume-item {
+      box-sizing: border-box;
+      align-items: center;
+      border-top: $border-light;
+      @include PutTheme(
+        "theme-dark",
+        (
+          "border-top": $border-dark,
+        )
+      );
+      display: flex;
+      // height: 80px;
+      width: 95%;
+      margin: 0 auto;
+      .cover {
+        @include MakeCover();
+      }
+      .key {
+        font-size: 12px;
+        margin: 0 10px;
+        color: $gray-alt;
+        @include PutTheme(
+          "theme-dark",
+          (
+            "color": $theme-dark-gray-alt,
+          )
+        );
+      }
+      .track-info {
+        font-size: 15px;
+        color: $theme-dark-alt3;
+        .title {
+          .name {
+            margin-right: 4px;
+            @include PutTheme(
+              "theme-dark",
+              (
+                "color": $white-dim-2,
+              )
+            );
+          }
+          .subname {
+            color: $gray-alt;
+            @include PutTheme(
+              "theme-dark",
+              (
+                "color": $theme-dark-gray-alt,
+              )
+            );
+          }
+        }
+        .artist {
+          color: $gray-alt-2;
+          margin-top: 10px;
+          .icon {
+            width: 18px;
+            height: 18px;
+            vertical-align: top;
+            color: $theme-red;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+    .with-border-bottom {
+      border-bottom: $border-light;
+      @include PutTheme(
+        "theme-dark",
+        (
+          "border-bottom": $border-dark,
+        )
+      );
+    }
+    &:hover {
+      background-color: $theme-light-dim;
+      @include PutTheme(
+        "theme-dark",
+        (
+          "background-color": $theme-dark-alt2,
+        )
+      );
+    }
+  }
+}

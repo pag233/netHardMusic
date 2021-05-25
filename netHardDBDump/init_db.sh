@@ -1,0 +1,1 @@
+mongorestore --archive < /data/dump/db.dump
