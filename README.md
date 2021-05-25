@@ -14,22 +14,36 @@ cd netHardMusic && docker-compose up
 测试账号: qwe@qwe.com:qweqweqwe
 ```
 ## 截屏
-### 播放单曲
-![play](https://github.com/pag233/netHardMusic/tree/master/screenplay/play.gif)
+### 播放
+<img src="screen_record/play.gif" width="569" height="405"/>
+
+### 登录
+<img src="screen_record/login.gif" width="569" height="405"/>
+
 ### 评论
-![comment](https://github.com/pag233/netHardMusic/tree/master/screenplay/comment.gif)
-### 私信
-![message](https://github.com/pag233/netHardMusic/tree/master/screenplay/message.gif)
-### 收藏
-![collection](https://github.com/pag233/netHardMusic/tree/master/screenplay/collection.gif)
+<img src="screen_record/theme-comment.gif" width="569" height="405"/>
+
+### 头像
+<img src="screen_record/avatar.gif" width="569" height="405"/>
+
+### banner
+<img src="screen_record/banner.gif" width="569" height="405"/>
+
 ### 列表
-![liststyle](https://github.com/pag233/netHardMusic/tree/master/screenplay/liststyle.gif)
+<img src="screen_record/listimage.gif" width="569" height="405"/>
+
 ### 搜索
-![search](https://github.com/pag233/netHardMusic/tree/master/screenplay/search.gif)
+<img src="screen_record/search.gif" width="569" height="405"/>
+
+### 标签
+<img src="screen_record/tag.gif" width="569" height="405"/>
+
 
 ## 总结
 - 入门玩具级,别笑应该有比我差的
 - cypress确实比selenium方便,国内用的相对少...写完才知道POM在cypress中是anti-designs
 - 没考虑过兼容,感觉又是一个大坑
+- 其实完全没有必要用Router...
+- 明白为啥不爱写单元测试了
 - 一开始写api时发现比前端上手,后来发现是达克效应,人菜瘾大
 - 最后发现都是达克效应
