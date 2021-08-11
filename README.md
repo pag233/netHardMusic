@@ -40,7 +40,7 @@ cd netHardMusic && docker-compose up
 
 
 ## 总结
-- 入门玩具级,别笑应该有比我差的
+- 入门玩具级，尤其是组件复用；别笑应该有比我差的
 - cypress确实比selenium方便,国内用的相对少...写完才知道POM在cypress中是anti-designs
 - 没考虑过兼容,感觉又是一个大坑
 - 其实完全没有必要用Router...
