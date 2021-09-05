@@ -1,5 +1,5 @@
 # netHardMusic
-仿网易云音乐demo
+复刻网易云音乐demo
 ```
 environment: Linux version 4.18.0-301.1.el8.x86_64  
 dependencies: nodejs npm@6 docker docker-compose
